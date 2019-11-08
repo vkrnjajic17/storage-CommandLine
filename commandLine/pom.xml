@@ -4,4 +4,49 @@
   <artifactId>commandLine</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>commandLine</name>
+  
+  
+  
+  <dependencies>
+        <dependency>
+            <groupId>rs.raf.komponente</groupId>
+            <artifactId>local</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+  
+  
+  <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <configuration>
+                    <show>private</show>
+                    <nohelp>true</nohelp>
+                </configuration>
+            </plugin>
+            			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>local.Main</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+        </plugins>
+    </build>
+  
 </project>
