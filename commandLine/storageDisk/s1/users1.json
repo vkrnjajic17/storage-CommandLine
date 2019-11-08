@@ -1,1 +1,1 @@
-{"users":[{"username":"a","password":"a","glavniAdmin":true,"dozvolaZaSnimanje":true,"dozvolaZaBrisanje":true,"dozvolaZaPreuzimanje":true}]}
+{"users":[{"username":"a","password":"a","glavniAdmin":true,"dozvolaZaSnimanje":true,"dozvolaZaBrisanje":true,"dozvolaZaPreuzimanje":true},{"username":"a","password":"a","glavniAdmin":false,"dozvolaZaSnimanje":true,"dozvolaZaBrisanje":false,"dozvolaZaPreuzimanje":true},{"username":"e","password":"r","glavniAdmin":false,"dozvolaZaSnimanje":true,"dozvolaZaBrisanje":false,"dozvolaZaPreuzimanje":false}]}
