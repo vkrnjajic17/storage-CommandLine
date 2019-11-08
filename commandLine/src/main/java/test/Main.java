@@ -111,7 +111,7 @@ public class Main {
 				myfile.moveWithMetadata(destStorage, destDekstop);
 				break;
 				
-			case "renemeFile":
+			case "renameFile":
 				if(!userLoggedin.isDozvolaZaSnimanje()) {
 					System.out.println("Ovaj korisnik ne moze ovo raditi");
 					break;
@@ -164,10 +164,11 @@ public class Main {
 					break;
 				}
 				while(true) {
+					System.out.println("Unesite extension:");
 					String extension = scanner.nextLine();
 					extensionList.getExtensionList().add(extension);
-					System.out.println("Da li zelite da unesete jos extension?");
-					Boolean daNe = scanner.nextBoolean();
+					System.out.println("Da li zelite da unesete jos extension?(da/ne)");
+					
 					
 					String daNeE = scanner.nextLine();
 					if (daNeE.equalsIgnoreCase("ne")) {
@@ -175,7 +176,7 @@ public class Main {
 					}
 				}
 				break;
-			case "end":
+			case "disconnect":
 				krajWhile = true;
 				break;
 			default:
