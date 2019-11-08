@@ -10,7 +10,7 @@
   <dependencies>
         <dependency>
             <groupId>rs.raf.komponente</groupId>
-            <artifactId>local</artifactId>
+            <artifactId>dropbox</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>

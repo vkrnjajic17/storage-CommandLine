@@ -1,10 +1,11 @@
 package test;
 
 import formatComponent.ExtensionList;
-import local.Connection;
+
 import model.MyPath;
-import modelLocal.MyDirectory;
-import modelLocal.MyFile;
+import modelS.MyDirectory;
+import modelS.MyFile;
+import storage.Connection;
 import usersComponent.User;
 import usersComponent.UserDatabase;
 
