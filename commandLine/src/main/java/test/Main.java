@@ -50,6 +50,18 @@ public class Main {
 				path = scanner.nextLine();
 				myfile.create(name, path, extensionList);
 				break;
+			case "createDir":
+				if(!userLoggedin.isDozvolaZaSnimanje()) {
+					System.out.println("Ovaj korisnik ne moze ovo raditi");
+					break;
+				}
+				System.out.println("Unesi ime dir ");
+				name = scanner.nextLine();
+
+				System.out.println("Unesi path dir ");
+				path = scanner.nextLine();
+				myDirectory.create(name, path);
+				break;
 			case "deleteFile":
 				if(!userLoggedin.isDozvolaZaBrisanje()) {
 					System.out.println("Ovaj korisnik ne moze ovo raditi");
@@ -58,6 +70,24 @@ public class Main {
 				System.out.println("Unesi path fajla ");
 				path = scanner.nextLine();
 				myfile.delete(path);
+				break;
+			case "deleteDir":
+				if(!userLoggedin.isDozvolaZaBrisanje()) {
+					System.out.println("Ovaj korisnik ne moze ovo raditi");
+					break;
+				}
+				System.out.println("Unesi path dira ");
+				path = scanner.nextLine();
+				myDirectory.delete(path);
+				break;
+			case "zipDir":
+				if(!(userLoggedin.isDozvolaZaPreuzimanje())) {
+					System.out.println("Ovaj korisnik ne moze ovo raditi");
+					break;
+				}
+				System.out.println("Unesi path dira ");
+				path = scanner.nextLine();
+				myDirectory.zip(path);
 				break;
 			case "createFileMeta":
 				if(!userLoggedin.isDozvolaZaSnimanje()) {
@@ -81,12 +111,38 @@ public class Main {
 				destDekstop = scanner.nextLine();
 				myfile.download(destStorage, destDekstop);
 				break;
+			case "dowlageDir":
+				if(!userLoggedin.isDozvolaZaPreuzimanje()) {
+					System.out.println("Ovaj korisnik ne moze ovo raditi");
+					break;
+				}
+				System.out.println("Unesi fajl na storage ");
+				destStorage = scanner.nextLine();
+				System.out.println("Unesi destinaciju na despotu ");
+				destDekstop = scanner.nextLine();
+				myDirectory.download(destStorage, destDekstop);
+				break;
 			case "uploadFile":
+				if(!userLoggedin.isDozvolaZaPreuzimanje()) {
+					System.out.println("Ovaj korisnik ne moze ovo raditi");
+					break;
+				}
 				System.out.println("Unesi fajl na despotu ");
 				destDekstop = scanner.nextLine();
 				System.out.println("Unesi destinaciju na storage ");
 				destStorage = scanner.nextLine();
 				myfile.upload(destDekstop, destStorage, extensionList);
+				break;
+			case "uploadDir":
+				if(!userLoggedin.isDozvolaZaPreuzimanje()) {
+					System.out.println("Ovaj korisnik ne moze ovo raditi");
+					break;
+				}
+				System.out.println("Unesi dir na despotu ");
+				destDekstop = scanner.nextLine();
+				System.out.println("Unesi destinaciju na storage ");
+				destStorage = scanner.nextLine();
+				myDirectory.upload(destDekstop, destStorage);
 				break;
 			case "moveFile":
 				if(!userLoggedin.isDozvolaZaPreuzimanje()) {
@@ -98,6 +154,17 @@ public class Main {
 				System.out.println("Unesi destinaciju na storage ");
 				destDekstop = scanner.nextLine();
 				myfile.move(destStorage, destDekstop);
+				break;
+			case "moveDir":
+				if(!userLoggedin.isDozvolaZaPreuzimanje()) {
+					System.out.println("Ovaj korisnik ne moze ovo raditi");
+					break;
+				}
+				System.out.println("Unesi dir na storage ");
+				destStorage = scanner.nextLine();
+				System.out.println("Unesi destinaciju na storage ");
+				destDekstop = scanner.nextLine();
+				myDirectory.move(destStorage, destDekstop);
 				break;
 			case "moveFileMeta":
 				if(!userLoggedin.isDozvolaZaPreuzimanje()) {
@@ -121,6 +188,42 @@ public class Main {
 				System.out.println("Unesi destinaciju na storage za promjeni imena");
 				path = scanner.nextLine();
 				myfile.rename(name, path);
+				break;
+			case "renameDir":
+				if(!userLoggedin.isDozvolaZaSnimanje()) {
+					System.out.println("Ovaj korisnik ne moze ovo raditi");
+					break;
+				}
+				System.out.println("Unesi ime");
+				name = scanner.nextLine();
+				System.out.println("Unesi destinaciju na storage za promjeni imena");
+				path = scanner.nextLine();
+				myDirectory.rename(name, path);
+				
+				break;
+			case "dirListAll":
+				
+				
+				System.out.println("Unesi path");
+				path = scanner.nextLine();
+				myDirectory.listAllinDirectory(path);
+				
+				break;
+			case "dirListDir":
+				
+				
+				System.out.println("Unesi path");
+				path = scanner.nextLine();
+				myDirectory.listAllinDirectoryInDirectory(path);
+				
+				break;
+			case "dirListFile":
+				
+				
+				System.out.println("Unesi path");
+				path = scanner.nextLine();
+				myDirectory.listAllFileinDirectory(path);
+				
 				break;
 
 			case "addUser":

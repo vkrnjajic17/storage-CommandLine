@@ -10,7 +10,7 @@
   <dependencies>
         <dependency>
             <groupId>rs.raf.komponente</groupId>
-            <artifactId>dropbox</artifactId>
+            <artifactId>local</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
@@ -18,7 +18,7 @@
   
   <build>
         <plugins>
-            <plugin>
+             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.7.0</version>
@@ -35,18 +35,30 @@
                     <nohelp>true</nohelp>
                 </configuration>
             </plugin>
-            			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<configuration>
-					<archive>
-						<manifest>
-							<mainClass>local.Main</mainClass>
-						</manifest>
-					</archive>
-				</configuration>
-			</plugin>
-        </plugins>
+          
+   <plugin>
+      <artifactId>maven-assembly-plugin</artifactId>
+      <configuration>
+        <descriptorRefs>
+          <descriptorRef>jar-with-dependencies</descriptorRef>
+        </descriptorRefs>
+        <archive>
+          <manifest>
+            <mainClass>fully.qualified.MainClass</mainClass>
+          </manifest>
+        </archive>
+      </configuration>
+      <executions>
+        <execution>
+          <phase>package</phase>
+          <goals>
+            <goal>single</goal>
+          </goals>
+        </execution>
+      </executions>
+    </plugin>
+ 
+     </plugins>
     </build>
   
 </project>
